@@ -30,7 +30,7 @@
     "@tarekraafat/autocomplete.js": "^7.0.1",
     "@types/google.analytics": "^0.0.40",
     "babel-loader": "^8.0.6",
-    "bootstrap-sass": "^3.4.1",
+    "bootstrap-sass": "3.4.1",
     "flatpickr": "^4.6.1",
     "rails-ujs": "^5.2.3",
     "simplemde": "^1.11.2",

@@ -5,7 +5,7 @@ services:
     volumes:
       - 'redis:/data'
 
-  backend: &backend
+  rails:
     image: ${COMPOSE_PROJECT_NAME}/rails:production
     tmpfs:
       - /tmp
@@ -13,9 +13,6 @@ services:
     tty: true
     env_file:
       - '/opt/${COMPOSE_PROJECT_NAME}/docker/.env'
-
-  rails:
-    <<: *backend
     command: bin/rails s -b 0.0.0.0 -p 3000
     depends_on:
       - redis
@@ -28,7 +25,13 @@ services:
       - /opt/${COMPOSE_PROJECT_NAME}/public:/${COMPOSE_PROJECT_NAME}/public:delegated
 
   sidekiq:
-    <<: *backend
+    image: ${COMPOSE_PROJECT_NAME}/rails:production
+    tmpfs:
+      - /tmp
+    stdin_open: true
+    tty: true
+    env_file:
+      - '/opt/${COMPOSE_PROJECT_NAME}/docker/.env'
     command: bundle exec sidekiq -C config/sidekiq.yml
     depends_on:
       - redis

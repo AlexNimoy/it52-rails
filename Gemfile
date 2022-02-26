@@ -16,6 +16,7 @@ gem 'sidekiq', '>= 5.2.7'
 
 # Integrations
 gem 'http'
+gem 'multipart-post'
 gem 'mailchimp-api', require: 'mailchimp'
 gem 'mailgun-ruby'
 
@@ -51,7 +52,7 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'sassc-rails', '>= 2.1.2'
 gem 'uglifier'
-gem 'webpacker', '>= 4.2.2'
+gem 'webpacker'
 
 # View template compilers and helpers
 gem 'jbuilder', '~> 2.9', '>= 2.9.1'
@@ -85,7 +86,6 @@ gem 'carrierwave-vips', '>= 1.2.0'
 gem 'fog-aws', '< 3'
 
 # Monitoring
-gem 'barnes'
 gem 'newrelic_rpm'
 gem 'rollbar'
 gem 'silencer'

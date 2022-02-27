@@ -36,7 +36,8 @@ class Event < ApplicationRecord
 
   mount_uploader :title_image, EventTitleImageUploader
 
-  before_update :migrate_to_address, on: %i[create update], if: :place_changed?
+  before_create :migrate_to_address, if: :place_changed?
+  before_update :migrate_to_address, if: :place_changed?
 
   belongs_to :organizer, class_name: 'User'
   belongs_to :address, optional: true

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-ruby '2.7.1'
+ruby '3.1.1'
 
 source 'https://rubygems.org'
 
@@ -17,6 +17,9 @@ gem 'sidekiq', '>= 5.2.7'
 
 # Integrations
 gem 'http'
+gem 'net-smtp'
+gem 'net-pop'
+gem 'net-imap'
 gem 'multipart-post'
 gem 'mailchimp-api', require: 'mailchimp'
 gem 'mailgun-ruby'
@@ -101,7 +104,7 @@ gem 'icalendar'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'listen', '~> 3.2.0'
+  gem 'listen'
   gem 'web-console', '>= 3.7.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

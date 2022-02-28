@@ -83,7 +83,7 @@ class EventDecorator < Draper::Decorator
 
   def link_to_place
     base = 'http://maps.yandex.ru/?text='
-    h.link_to URI.encode(base + object.place), target: '_blank', itemprop: 'location', itemscope: true, itemtype: 'http://schema.org/Place', rel: 'noopener' do
+    h.link_to CGI.escape(base + object.place), target: '_blank', itemprop: 'location', itemscope: true, itemtype: 'http://schema.org/Place', rel: 'noopener' do
       link_arr = [h.content_tag(:span, object.place, itemprop: 'address')]
       if object.address_comment.present?
         link_arr << h.content_tag(:span, object.address_comment, itemprop: 'name')

@@ -1,9 +1,9 @@
-import * as SimpleMDE from 'simplemde'
-import flatpickr from 'flatpickr'
-import { Russian } from 'flatpickr/dist/l10n/ru'
+import * as SimpleMDE from 'simplemde';
+import flatpickr from 'flatpickr';
+import { Russian } from 'flatpickr/dist/l10n/ru';
 
 function hasEditor(): boolean {
-  return document.querySelectorAll('.editor-toolbar').length > 0
+  return document.querySelectorAll('.editor-toolbar').length > 0;
 }
 
 function init(event?: Event): void {
@@ -15,9 +15,9 @@ function init(event?: Event): void {
     dateFormat: 'd.m.Y H:i',
     minDate: 'today',
     locale: Russian,
-  })
+  });
 
-  const simplemdeElements = document.querySelectorAll('.mde-textarea')
+  const simplemdeElements = document.querySelectorAll('.mde-textarea');
   if (simplemdeElements.length > 0 && !hasEditor()) {
     simplemdeElements.forEach((el) => {
       new SimpleMDE({
@@ -25,11 +25,11 @@ function init(event?: Event): void {
         indentWithTabs: false,
         promptURLs: true,
         spellChecker: false,
-        hideIcons: ['image']
-      })
-    })
+        hideIcons: ['image'],
+      });
+    });
   }
 }
 
-document.addEventListener('turbolinks:load', init)
-init()
+document.addEventListener('turbolinks:load', init);
+init();

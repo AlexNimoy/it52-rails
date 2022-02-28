@@ -41,10 +41,6 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticated_path?
-    controller_namespace == My || new_event_path == request.original_fullpath
-  end
-
-  def controller_namespace
-    self.class.parent
+    controller_path.split('/').first == 'my' || new_event_path == request.original_fullpath
   end
 end

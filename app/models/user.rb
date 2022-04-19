@@ -145,6 +145,8 @@ class User < ApplicationRecord
   end
 
   def sync_with_mailchimp
+    # disabled
+    return nil
     return nil if email.blank?
     return unless Rails.env.production?
 
